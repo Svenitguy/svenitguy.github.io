@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sven Velleman - CV</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #fff;
+    color: #000;
+}
+
+/* A4 layout */
+.cv {
+    width: 210mm;
+    min-height: 297mm;
+    padding: 18mm;
+    box-sizing: border-box;
+}
+
+/* HEADER */
+.header {
+    border-bottom: 2px solid #000;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+}
+
+.name {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.title {
+    font-size: 14px;
+    margin-top: 4px;
+    font-weight: 600;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 12px;
+    margin-top: 6px;
+}
+
+/* SECTIONS */
+.section {
+    margin-top: 12px;
+}
+
+.section h2 {
+    font-size: 14px;
+    border-bottom: 1px solid #000;
+    padding-bottom: 3px;
+    margin-bottom: 6px;
+}
+
+/* TEXT */
+p {
+    font-size: 12px;
+    margin: 4px 0;
+}
+
+ul {
+    margin: 4px 0 8px 18px;
+    font-size: 12px;
+}
+
+/* PRINT */
+@media print {
+    .actions {
+        display: none;
+    }
+}
+
+/* Top action bar (centraal) */
+.actions {
+    position: fixed;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+
+    display: flex;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 8px 12px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    backdrop-filter: blur(6px);
+}
+
+/* beide knoppen consistent */
+.btn-primary,
+.btn-secondary {
+    border: none;
+    padding: 10px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* primary */
+.btn-primary {
+    background: #111;
+    color: #fff;
+}
+
+/* secondary */
+.btn-secondary {
+    background: #fff;
+    color: #111;
+    border: 1px solid #111;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+    opacity: 0.85;
+}
+
+/* PRINT: knop verbergen */
+@media print {
+    .actions {
+        display: none;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="actions">
+    <button onclick="window.print()" class="btn-primary">
+        📄 Download / Print PDF
+    </button>
+    <button onclick="window.location.href='index.html'" class="btn-secondary">
+        ← Terug naar portfolio
+    </button>
+</div>
+
+<div class="cv">
+
+<!-- HEADER -->
+<div class="header">
+    <div class="name">Sven Velleman</div>
+    <div class="title">
+        Junior IT Support / Cloud & System Administrator | Azure • Microsoft 365 • Windows Server • Networking
+    </div>
+
+    <div class="row">
+        <div>📍 Moerbeke-Waas, België</div>
+        <div>📧 <a href="mailto:sven.velleman@svenitguy.be">sven.velleman@svenitguy.be</a></div>
+        <div>🌐 <a href="https://www.svenitguy.be" target="_blank">Portfolio</a></div>
+        <div>💼 <a href="https://www.linkedin.com/in/sven-velleman/" target="_blank">LinkedIn</a></div>
+        <div>💻 <a href="https://github.com/Svenitguy" target="_blank">GitHub</a></div>
+    </div>
+</div>
+
+<!-- SUMMARY -->
+<div class="section">
+<h2>Over mij</h2>
+
+<p>
+Junior IT professional met sterke hands-on ervaring in cloud- en infrastructuuromgevingen.
+Recent afgestudeerd als systeembeheerder (VDAB IT1) met focus op Microsoft Azure, Microsoft 365,
+Windows Server en networking.
+</p>
+
+<p>
+Actief gewerkt aan een eigen homelab en cloudprojecten om praktische IT-ervaring op te bouwen.
+Start in IT support met duidelijke ambitie richting Cloud Engineer / Azure Administrator.
+</p>
+</div>
+
+<!-- SKILLS -->
+<div class="section">
+<h2>Technische Skills</h2>
+
+<p><b>Cloud & Microsoft</b></p>
+<ul>
+<li>Azure – Static Web Apps, DNS, CI/CD via Azure DevOps</li>
+<li>Microsoft 365 – tenant setup, users, groups, mail configuratie</li>
+</ul>
+
+<p><b>Infrastructure</b></p>
+<ul>
+<li>Windows Server 2019/2022 – Active Directory, users, groups, permissions</li>
+<li>VMware ESXi / Hyper-V – virtualisatie en lab-omgevingen</li>
+</ul>
+
+<p><b>Networking</b></p>
+<ul>
+<li>TCP/IP, DNS, DHCP troubleshooting</li>
+<li>VLAN configuratie en switching (homelab)</li>
+</ul>
+
+<p><b>Automation</b></p>
+<ul>
+<li>PowerShell scripting (basis automatisatie)</li>
+</ul>
+</div>
+
+<!-- PROJECTS -->
+<div class="section">
+<h2>Projecten (Hands-on ervaring)</h2>
+
+<p><b>Azure Cloud Portfolio Project</b></p>
+<ul>
+<li>Gehoste portfolio website via Azure Static Web Apps</li>
+<li>DNS configuratie en domeinbeheer</li>
+<li>CI/CD pipeline opgezet via Azure DevOps</li>
+</ul>
+
+<p><b>Homelab Infrastructure (18U rack)</b></p>
+<ul>
+<li>Volledige IT-infrastructuur ontworpen en gebouwd</li>
+<li>VMware ESXi + Hyper-V virtualisatie platform</li>
+<li>VLAN segmentatie via Layer 3 switch</li>
+<li>NAS storage & backup architectuur</li>
+</ul>
+
+<p><b>Microsoft 365 Tenant</b></p>
+<ul>
+<li>User- en group management</li>
+<li>Mail configuratie en domeinintegratie</li>
+</ul>
+</div>
+
+<!-- EXPERIENCE -->
+<div class="section">
+<h2>Werkervaring</h2>
+
+<p><b>Zelfstandige (E-commerce) – 2021–2024</b></p>
+<ul>
+<li>Beheer van webshop via Bol.com platform</li>
+<li>Stockbeheer, orderverwerking en klantenservice</li>
+<li>Data-analyse voor optimalisatie van verkoopprocessen</li>
+</ul>
+
+<p><b>Magazijnier – 1999–2021</b></p>
+<ul>
+<li>Logistiek en voorraadbeheer in industriële omgeving</li>
+<li>Nauwkeurige verwerking van goederenstromen</li>
+</ul>
+</div>
+
+<!-- EDUCATION -->
+<div class="section">
+<h2>Opleiding</h2>
+<p>VDAB IT1 – Junior Systeembeheerder (2024–2025)</p>
+<p>BSO 7de jaar Zeefdruk</p>
+</div>
+
+<!-- LANGUAGES -->
+<div class="section">
+<h2>Talen</h2>
+<ul>
+<li>Nederlands (moedertaal)</li>
+<li>Engels (goed)</li>
+<li>Frans (basis)</li>
+</ul>
+</div>
+
+</div>
+
+</body>
+</html>
