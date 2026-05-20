@@ -6,6 +6,11 @@
 <title>Sven Velleman - CV</title>
 
 <style>
+
+/* =========================
+   BASE
+========================= */
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -13,19 +18,29 @@ body {
     color: #000;
 }
 
-/* A4 layout */
+/* =========================
+   A4 LAYOUT
+========================= */
+
 .cv {
     width: 210mm;
     min-height: 297mm;
-    padding: 18mm;
+    padding: 16mm;
     box-sizing: border-box;
+    margin: 0 auto;
+
+    /* EXTRA RUIMTE BOVENAAN */
+    padding-top: 85px;
 }
 
-/* HEADER */
+/* =========================
+   HEADER
+========================= */
+
 .header {
     border-bottom: 2px solid #000;
-    margin-bottom: 12px;
-    padding-bottom: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
 }
 
 .name {
@@ -34,50 +49,72 @@ body {
 }
 
 .title {
-    font-size: 14px;
+    font-size: 13px;
     margin-top: 4px;
     font-weight: 600;
+    line-height: 1.4;
 }
 
 .row {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    font-size: 12px;
+    font-size: 11px;
     margin-top: 6px;
 }
 
-/* SECTIONS */
+/* =========================
+   SECTIONS
+========================= */
+
 .section {
-    margin-top: 12px;
+    margin-top: 10px;
 }
 
 .section h2 {
-    font-size: 14px;
+    font-size: 13px;
     border-bottom: 1px solid #000;
     padding-bottom: 3px;
-    margin-bottom: 6px;
+    margin-bottom: 5px;
 }
 
-/* TEXT */
+/* =========================
+   TEXT
+========================= */
+
 p {
-    font-size: 12px;
-    margin: 4px 0;
+    font-size: 11px;
+    margin: 3px 0;
+    line-height: 1.35;
 }
 
 ul {
-    margin: 4px 0 8px 18px;
-    font-size: 12px;
+    margin: 2px 0 6px 16px;
+    font-size: 11px;
+    line-height: 1.35;
 }
 
-/* PRINT */
-@media print {
-    .actions {
-        display: none;
-    }
+li {
+    margin-bottom: 2px;
 }
 
-/* Top action bar (centraal) */
+a {
+    color: #000;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+strong {
+    font-weight: 700;
+}
+
+/* =========================
+   ACTION BUTTONS
+========================= */
+
 .actions {
     position: fixed;
     top: 12px;
@@ -86,185 +123,406 @@ ul {
     z-index: 1000;
 
     display: flex;
-    gap: 10px;
-    background: rgba(255, 255, 255, 0.9);
-    padding: 8px 12px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    backdrop-filter: blur(6px);
+    gap: 12px;
+
+    background: rgba(255,255,255,0.96);
+    padding: 10px 14px;
+
+    border-radius: 14px;
+
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    backdrop-filter: blur(8px);
 }
 
-/* beide knoppen consistent */
 .btn-primary,
 .btn-secondary {
-    border: none;
-    padding: 10px 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    padding: 11px 16px;
+
+    border-radius: 10px;
+
     font-size: 13px;
-    font-weight: 600;
-    border-radius: 8px;
+    font-weight: 700;
+
+    text-decoration: none;
+
     cursor: pointer;
+
+    border: none;
+    outline: none;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background-color 0.2s ease,
+        color 0.2s ease;
 }
 
-/* primary */
+/* PRIMARY BUTTON */
+
 .btn-primary {
-    background: #111;
+    background: linear-gradient(135deg, #111, #333);
     color: #fff;
+
+    border: 2px solid #000;
+
+    box-shadow:
+        0 6px 14px rgba(0,0,0,0.25),
+        inset 0 1px 0 rgba(255,255,255,0.08);
 }
 
-/* secondary */
+.btn-primary:hover {
+    background: linear-gradient(135deg, #222, #444);
+
+    color: #fff;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 22px rgba(0,0,0,0.35),
+        inset 0 1px 0 rgba(255,255,255,0.12);
+}
+
+/* SECONDARY BUTTON */
+
 .btn-secondary {
     background: #fff;
     color: #111;
-    border: 1px solid #111;
+
+    border: 2px solid #111;
+
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
 }
 
-.btn-primary:hover,
 .btn-secondary:hover {
-    opacity: 0.85;
+    background: #111;
+    color: #fff;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 18px rgba(0,0,0,0.18);
 }
 
-/* PRINT: knop verbergen */
+/* REMOVE BROWSER FLASH */
+
+.btn-primary:focus,
+.btn-secondary:focus,
+.btn-primary:active,
+.btn-secondary:active {
+    outline: none;
+}
+
+/* =========================
+   PRINT
+========================= */
+
 @media print {
+
     .actions {
         display: none;
     }
+
+    body {
+        margin: 0;
+        background: #fff;
+    }
+
+    .cv {
+        width: 100%;
+        min-height: auto;
+
+        padding: 6mm 8mm;
+        margin: 0;
+    }
+
+    .header {
+        margin-bottom: 8px;
+        padding-bottom: 6px;
+    }
+
+    .section {
+        margin-top: 7px;
+    }
+
+    .section h2 {
+        font-size: 12px;
+        margin-bottom: 3px;
+        padding-bottom: 2px;
+    }
+
+    p {
+        font-size: 10.5px;
+        line-height: 1.25;
+        margin: 2px 0;
+    }
+
+    ul {
+        font-size: 10.5px;
+        line-height: 1.25;
+        margin: 1px 0 4px 15px;
+    }
+
+    li {
+        margin-bottom: 1px;
+    }
+
+    .row {
+        gap: 5px;
+        font-size: 10px;
+    }
+
+    .name {
+        font-size: 21px;
+    }
+
+    .title {
+        font-size: 11px;
+        line-height: 1.25;
+    }
+
+    @page {
+        size: A4;
+        margin: 6mm;
+    }
 }
+
 </style>
 </head>
 
 <body>
 
+<!-- ACTION BUTTONS -->
+
 <div class="actions">
-    <button onclick="window.print()" class="btn-primary">
+
+    <a href="#"
+       onclick="window.print(); return false;"
+       class="btn-primary">
         📄 Download / Print PDF
-    </button>
-    <button onclick="window.location.href='index.html'" class="btn-secondary">
+    </a>
+
+    <a href="index.html"
+       class="btn-secondary">
         ← Terug naar portfolio
-    </button>
+    </a>
+
 </div>
+
+<!-- CV -->
 
 <div class="cv">
 
-<!-- HEADER -->
-<div class="header">
-    <div class="name">Sven Velleman</div>
-    <div class="title">
-        Junior IT Support / Cloud & System Administrator | Azure • Microsoft 365 • Windows Server • Networking
+    <!-- HEADER -->
+
+    <div class="header">
+
+        <div class="name">Sven Velleman</div>
+
+        <div class="title">
+            Junior IT Support | System Administrator | Cloud & Infrastructure
+            <br>
+            Azure • Microsoft 365 • Windows Server • Networking • Virtualization
+        </div>
+
+        <div class="row">
+
+            <div>📍 Moerbeke-Waas, België</div>
+
+            <div>
+                📧
+                <a href="mailto:sven.velleman@svenitguy.be">
+                    sven.velleman@svenitguy.be
+                </a>
+            </div>
+
+            <div>
+                🌐
+                <a href="https://www.svenitguy.be" target="_blank">
+                    Portfolio
+                </a>
+            </div>
+
+            <div>
+                💼
+                <a href="https://www.linkedin.com/in/sven-velleman/" target="_blank">
+                    LinkedIn
+                </a>
+            </div>
+
+            <div>
+                💻
+                <a href="https://github.com/Svenitguy" target="_blank">
+                    GitHub
+                </a>
+            </div>
+
+        </div>
     </div>
 
-    <div class="row">
-        <div>📍 Moerbeke-Waas, België</div>
-        <div>📧 <a href="mailto:sven.velleman@svenitguy.be">sven.velleman@svenitguy.be</a></div>
-        <div>🌐 <a href="https://www.svenitguy.be" target="_blank">Portfolio</a></div>
-        <div>💼 <a href="https://www.linkedin.com/in/sven-velleman/" target="_blank">LinkedIn</a></div>
-        <div>💻 <a href="https://github.com/Svenitguy" target="_blank">GitHub</a></div>
+    <!-- SUMMARY -->
+
+    <div class="section">
+
+        <h2>Profiel</h2>
+
+        <p>
+            Junior IT professional met hands-on ervaring in
+            cloud-, infrastructuur- en Microsoft-omgevingen.
+            Afgestudeerd als Junior Systeembeheerder via de VDAB IT1 dagopleiding
+            (2024–2025) met praktijkervaring in networking,
+            Windows Server, Active Directory, Microsoft 365,
+            virtualisatie en troubleshooting.
+        </p>
+
+        <p>
+            Bouwt actief eigen homelab- en cloudprojecten om praktijkervaring op te doen
+            in Azure, Microsoft 365, virtualisatie, networking en automation.
+            Sterke interesse in cloud engineering, security, Infrastructure as Code
+            en AI-toepassingen binnen IT.
+        </p>
+
     </div>
-</div>
 
-<!-- SUMMARY -->
-<div class="section">
-<h2>Over mij</h2>
+    <!-- SKILLS -->
 
-<p>
-Junior IT professional met sterke hands-on ervaring in cloud- en infrastructuuromgevingen.
-Recent afgestudeerd als systeembeheerder (VDAB IT1) met focus op Microsoft Azure, Microsoft 365,
-Windows Server en networking.
-</p>
+    <div class="section">
 
-<p>
-Actief gewerkt aan een eigen homelab en cloudprojecten om praktische IT-ervaring op te bouwen.
-Start in IT support met duidelijke ambitie richting Cloud Engineer / Azure Administrator.
-</p>
-</div>
+        <h2>Technische Skills</h2>
 
-<!-- SKILLS -->
-<div class="section">
-<h2>Technische Skills</h2>
+        <ul>
+            <li><strong>Cloud & Microsoft:</strong> Azure Static Web Apps, Azure DNS, Azure Functions, Azure DevOps, Microsoft 365, Exchange Online</li>
 
-<p><b>Cloud & Microsoft</b></p>
-<ul>
-<li>Azure – Static Web Apps, DNS, CI/CD via Azure DevOps</li>
-<li>Microsoft 365 – tenant setup, users, groups, mail configuratie</li>
-</ul>
+            <li><strong>Systems Administration:</strong> Windows Server 2019/2022, Active Directory, users/groups, permissions, GPO basics</li>
 
-<p><b>Infrastructure</b></p>
-<ul>
-<li>Windows Server 2019/2022 – Active Directory, users, groups, permissions</li>
-<li>VMware ESXi / Hyper-V – virtualisatie en lab-omgevingen</li>
-</ul>
+            <li><strong>Networking:</strong> TCP/IP, DNS, DHCP, VLANs, switching, routing fundamentals, troubleshooting</li>
 
-<p><b>Networking</b></p>
-<ul>
-<li>TCP/IP, DNS, DHCP troubleshooting</li>
-<li>VLAN configuratie en switching (homelab)</li>
-</ul>
+            <li><strong>Virtualization:</strong> VMware ESXi, Hyper-V, virtuele labomgevingen</li>
 
-<p><b>Automation</b></p>
-<ul>
-<li>PowerShell scripting (basis automatisatie)</li>
-</ul>
-</div>
+            <li><strong>Automation & Tools:</strong> PowerShell basics, Git, GitHub, CI/CD workflows</li>
 
-<!-- PROJECTS -->
-<div class="section">
-<h2>Projecten (Hands-on ervaring)</h2>
+            <li><strong>Learning Focus:</strong> AZ-104, Infrastructure as Code (Terraform/Bicep), cloud security, AI-assisted workflows</li>
+        </ul>
 
-<p><b>Azure Cloud Portfolio Project</b></p>
-<ul>
-<li>Gehoste portfolio website via Azure Static Web Apps</li>
-<li>DNS configuratie en domeinbeheer</li>
-<li>CI/CD pipeline opgezet via Azure DevOps</li>
-</ul>
+    </div>
 
-<p><b>Homelab Infrastructure (18U rack)</b></p>
-<ul>
-<li>Volledige IT-infrastructuur ontworpen en gebouwd</li>
-<li>VMware ESXi + Hyper-V virtualisatie platform</li>
-<li>VLAN segmentatie via Layer 3 switch</li>
-<li>NAS storage & backup architectuur</li>
-</ul>
+    <!-- PROJECTS -->
 
-<p><b>Microsoft 365 Tenant</b></p>
-<ul>
-<li>User- en group management</li>
-<li>Mail configuratie en domeinintegratie</li>
-</ul>
-</div>
+    <div class="section">
 
-<!-- EXPERIENCE -->
-<div class="section">
-<h2>Werkervaring</h2>
+        <h2>Projecten</h2>
 
-<p><b>Zelfstandige (E-commerce) – 2021–2024</b></p>
-<ul>
-<li>Beheer van webshop via Bol.com platform</li>
-<li>Stockbeheer, orderverwerking en klantenservice</li>
-<li>Data-analyse voor optimalisatie van verkoopprocessen</li>
-</ul>
+        <p><strong>Azure Portfolio Website</strong></p>
 
-<p><b>Magazijnier – 1999–2021</b></p>
-<ul>
-<li>Logistiek en voorraadbeheer in industriële omgeving</li>
-<li>Nauwkeurige verwerking van goederenstromen</li>
-</ul>
-</div>
+        <ul>
+            <li><strong>Context:</strong> Eigen portfolio gebouwd om cloud- en infrastructuurkennis publiek te demonstreren.</li>
 
-<!-- EDUCATION -->
-<div class="section">
-<h2>Opleiding</h2>
-<p>VDAB IT1 – Junior Systeembeheerder (2024–2025)</p>
-<p>BSO 7de jaar Zeefdruk</p>
-</div>
+            <li><strong>Actie:</strong> Website gehost via Azure Static Web Apps met Azure DNS, CI/CD via Azure DevOps en GitHub integratie.</li>
 
-<!-- LANGUAGES -->
-<div class="section">
-<h2>Talen</h2>
-<ul>
-<li>Nederlands (moedertaal)</li>
-<li>Engels (goed)</li>
-<li>Frans (basis)</li>
-</ul>
-</div>
+            <li><strong>Resultaat:</strong> Werkende cloud deployment pipeline opgezet en eigen Azure omgeving zelfstandig beheerd.</li>
+        </ul>
+
+        <p><strong>Azure Memory Game + Cosmos DB</strong></p>
+
+        <ul>
+            <li><strong>Context:</strong> Interactief cloudproject ontwikkeld om Azure services praktisch te leren gebruiken.</li>
+
+            <li><strong>Actie:</strong> Memory game gebouwd met opslag van highscores in Azure Cosmos DB.</li>
+
+            <li><strong>Resultaat:</strong> Praktische ervaring opgedaan met cloud storage, databases en Azure-integraties.</li>
+        </ul>
+
+        <p><strong>Homelab Infrastructure (18U rack)</strong></p>
+
+        <ul>
+            <li><strong>Context:</strong> Eigen labomgeving gebouwd om enterprise infrastructuur en troubleshooting te oefenen.</li>
+
+            <li><strong>Actie:</strong> Netwerk opgezet met virtualisatie, VLAN segmentatie, VMware ESXi, Hyper-V en NAS storage.</li>
+
+            <li><strong>Resultaat:</strong> Hands-on ervaring opgebouwd in infrastructuurbeheer, networking en virtualisatie.</li>
+        </ul>
+
+        <p><strong>Microsoft 365 Tenant Setup</strong></p>
+
+        <ul>
+            <li><strong>Context:</strong> Eigen Microsoft 365 omgeving opgezet voor praktijkervaring met cloudbeheer.</li>
+
+            <li><strong>Actie:</strong> Configuratie uitgevoerd van gebruikers, groepen, domeinkoppeling en e-mailservices.</li>
+
+            <li><strong>Resultaat:</strong> Inzicht opgebouwd in Microsoft 365 administratie en cloud identity management.</li>
+        </ul>
+
+    </div>
+
+    <!-- EDUCATION -->
+
+    <div class="section">
+
+        <h2>Opleiding</h2>
+
+        <p>
+            <strong>VDAB IT1 – Junior Systeembeheerder (2024–2025)</strong>
+        </p>
+
+        <ul>
+            <li>Intensieve praktijkgerichte dagopleiding systeem- en netwerkbeheer</li>
+
+            <li>Windows Server, Active Directory, DNS, DHCP, Microsoft 365, Exchange, VMware, Hyper-V</li>
+
+            <li>Uitgebreide labo’s met bedrijfsomgevingen, troubleshooting en netwerkinfrastructuur</li>
+
+            <li>Azure fundamentals, security basics, PowerShell en virtualisatie</li>
+        </ul>
+
+        <p><strong>Zelfstudie & Online Learning</strong></p>
+
+        <ul>
+            <li>Microsoft Learn, Udemy, Codecademy en TryHackMe</li>
+
+            <li>Actief bezig met AZ-104 labs, cloudbeheer, security en Infrastructure as Code</li>
+        </ul>
+
+    </div>
+
+    <!-- EXPERIENCE -->
+
+    <div class="section">
+
+        <h2>Werkervaring</h2>
+
+        <p><strong>Zelfstandige E-commerce – 2021–2024</strong></p>
+
+        <ul>
+            <li>Zelfstandig beheer van webshopactiviteiten, klantenservice en operationele processen</li>
+
+            <li>Ervaring opgebouwd in probleemoplossend werken, planning en zelfstandig verantwoordelijkheid nemen</li>
+        </ul>
+
+        <p><strong>Magazijnier – 1999–2021</strong></p>
+
+        <ul>
+            <li>Logistiek en voorraadbeheer binnen industriële omgeving</li>
+
+            <li>Gewend aan nauwkeurig werken, verantwoordelijkheid en teamwork</li>
+        </ul>
+
+    </div>
+
+    <!-- LANGUAGES -->
+
+    <div class="section">
+
+        <h2>Talen</h2>
+
+        <ul>
+            <li>Nederlands – moedertaal</li>
+            <li>Engels – goed</li>
+            <li>Frans – basis</li>
+        </ul>
+
+    </div>
 
 </div>
 
