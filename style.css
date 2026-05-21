@@ -239,6 +239,8 @@ footer {
     background: #fff;
     color: #111;
 
+    border: 2px solid rgba(255,255,255,0.35);
+
     padding: 14px 22px;
 
     border-radius: 12px;
