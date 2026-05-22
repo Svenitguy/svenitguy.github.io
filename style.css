@@ -60,6 +60,12 @@ header p {
   color: #ccc;
 }
 
+header .stack {
+    font-size: 0.9em; /* iets kleiner dan de titel */
+    color: #666;      /* grijs voor subtiele uitstraling */
+    margin-top: 5px;  /* beetje ruimte boven de knop */
+}
+
 /* =========================
    MAIN LAYOUT
 ========================= */
