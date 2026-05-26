@@ -3,6 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 <title>Sven Velleman - CV</title>
 
 <style>
@@ -227,6 +231,19 @@ strong {
     outline: none;
 }
 
+.qr {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: white;
+    padding: 6px;
+    border-radius: 6px;
+    text-align: center;
+
+    /* FIX: voorkomt print overlap issues */
+    z-index: 10;
+}
+
 /* =========================
    PRINT
 ========================= */
@@ -301,7 +318,23 @@ strong {
     }
 }
 
+a {
+        color: #000 !important;
+    }
+
+    i {
+        color: #000 !important;
+    }
+
+    .links-row {
+        gap: 12px !important;
+        justify-content: center;
+    }
+
 </style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
 </head>
 
 <body>
@@ -331,6 +364,15 @@ strong {
 
     <div class="header">
 
+<div class="qr">
+    <div id="qrcode"></div>
+
+    <div class="qr-label">
+        Portfolio<br>
+        svenitguy.be
+    </div>
+</div>
+
         <div class="name">Sven Velleman</div>
 
 <div class="title">
@@ -339,46 +381,73 @@ strong {
     Azure • Microsoft 365 • Windows Server • Networking • Virtualization
 </div>
 
-        <div class="row contact-row">
+        <div class="row contact-row" style="margin: 10px 0;">
 
-    <div>📍 Moerbeke-Waas, België</div>
+    <div style="margin-right: 25px; display:flex; align-items:center;">
+        <i class="fa-solid fa-location-dot"
+           style="font-size:0.8rem; margin-right:5px; color:#000;"></i>
+        <span>Moerbeke-Waas, België</span>
+    </div>
 
-    <div>📞 +32 467 33 82 59</div>
+    <div style="margin-right: 25px; display:flex; align-items:center;">
+        <i class="fa-solid fa-phone"
+           style="font-size:0.8rem; margin-right:5px; color:#000;"></i>
+        <span>+32 467 33 82 59</span>
+    </div>
 
-    <div>
-        📧
-        <a href="mailto:sven.velleman@svenitguy.be">
+    <div style="display:flex; align-items:center;">
+        <i class="fa-solid fa-envelope"
+           style="font-size:0.8rem; margin-right:5px; color:#000;"></i>
+
+        <a href="mailto:sven.velleman@svenitguy.be"
+           style="text-decoration:none; color:#000;">
             sven.velleman@svenitguy.be
         </a>
     </div>
 
 </div>
-
 <div class="row links-row">
 
-    <div>
-        🌐
-        <a href="https://www.svenitguy.be" target="_blank">
-            Portfolio Projects
-        </a>
-    </div>
+<a href="https://www.svenitguy.be"
+   target="_blank"
+   rel="noopener noreferrer"
+   style="display:flex; align-items:center; gap:5px; text-decoration:none; color:#fff;">
 
-    <div>
-        💼
-        <a href="https://www.linkedin.com/in/sven-velleman/" target="_blank">
-            LinkedIn
-        </a>
-    </div>
+    <i class="fa-solid fa-globe" style="font-size:1.1rem;"></i>
 
-    <div>
-        💻
-        <a href="https://github.com/Svenitguy" target="_blank">
-            GitHub Labs
-        </a>
-    </div>
+    <span style="font-size:12px;">
+        svenitguy.be
+    </span>
+
+</a>
+
+<a href="https://github.com/Svenitguy"
+   target="_blank"
+   rel="noopener noreferrer"
+   style="display:flex; align-items:center; gap:5px; text-decoration:none; color:#fff;">
+
+    <i class="fa-brands fa-github" style="font-size:1.1rem;"></i>
+
+    <span style="font-size:12px;">
+        github.com/Svenitguy
+    </span>
+
+</a>
+
+<a href="https://www.linkedin.com/in/sven-velleman"
+   target="_blank"
+   rel="noopener noreferrer"
+   style="display:flex; align-items:center; gap:5px; text-decoration:none; color:#fff;">
+
+    <i class="fa-brands fa-linkedin" style="font-size:1.1rem;"></i>
+
+    <span style="font-size:12px;">
+        linkedin.com/in/sven-velleman
+    </span>
+
+</a>
 
 </div>
-
     <!-- SUMMARY -->
 
     <div class="section">
@@ -539,4 +608,15 @@ Mijn doel is om te starten in IT-support of systeembeheer, met een duidelijke do
 </div>
 
 </body>
+
+<script>
+new QRCode(document.getElementById("qrcode"), {
+    text: "https://www.svenitguy.be",
+    width: 90,
+    height: 90,
+    colorDark: "#000000",
+    colorLight: "#ffffff"
+});
+</script>
+
 </html>
